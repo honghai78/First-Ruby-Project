@@ -40,8 +40,9 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 
 group :production do
-  gem "pg"
-  gem "rails_12factor"
+  gem 'pg'
+  gem 'sqlite3'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
