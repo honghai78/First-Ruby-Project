@@ -50,8 +50,8 @@ test:
 production:
   <<: *default
   adapter: pg
-    encoding: utf8
-    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: ruby_demo_production
   username: ruby_demo
   password: <%= ENV['RUBY_DEMO_DATABASE_PASSWORD'] %>
