@@ -6338,3 +6338,150 @@ Processing by SessionController#login as HTML
 Completed 200 OK in 72ms (Views: 69.4ms | ActiveRecord: 0.0ms)
 
 
+Started POST "/login" for 127.0.0.1 at 2018-05-16 17:21:18 +0700
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /Users/haitran/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9i4ijmNwlfwWHtb/WuKh8gklvB+IxQRjL1EYR2/HtShwp+1tnPLUy3T3z7BZbkm8LlBIFeiJ6fOSfc00mC43rw==", "session"=>{"name"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (27.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` = 'admin' LIMIT 1[0m
+  ↳ app/controllers/session_controller.rb:6
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 104ms (ActiveRecord: 27.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-05-16 17:21:18 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:8
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 129ms (Views: 124.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-16 17:21:20 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered collection of users/_user.html.erb [4 times] (2.1ms)
+  Rendered users/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 108ms (Views: 102.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-05-16 17:24:44 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:8
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 354ms (Views: 335.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-16 17:25:03 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered collection of users/_user.html.erb [4 times] (4.5ms)
+  Rendered users/index.html.erb within layouts/application (40.5ms)
+Completed 200 OK in 158ms (Views: 135.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/delete_user?id=13" for 127.0.0.1 at 2018-05-16 17:25:18 +0700
+Processing by UsersController#delete_user_with_user_name as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o2hhiAvRfrc/Z8Ki8IP10WzA4t/d9aSRlRlFCDq5yFE1mgwegg8nFl5HArGh5Bxxbbo6H8LRWEG+zeV/c8JjRQ==", "commit"=>"Delete", "id"=>"13"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:33
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM `users` WHERE `users`.`id` = 13[0m
+  ↳ app/controllers/users_controller.rb:33
+  [1m[35m (90.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:33
+Redirected to http://localhost:3000/users
+Completed 302 Found in 95ms (ActiveRecord: 91.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-16 17:25:18 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered collection of users/_user.html.erb [3 times] (2.1ms)
+  Rendered users/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 81ms (Views: 76.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-05-16 17:25:21 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:8
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 111ms (Views: 107.9ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-05-16 17:25:22 +0700
+Processing by SessionController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NZqUU0+6yqhdzugYH9yVWNJDOI8cfMw1tclx1pZSQ2qzE1uwsDiLnz8n8VccUH0W9TbMhXwwIaUI5aSlYbvB7Q=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-05-16 17:25:22 +0700
+Processing by SessionController#login as HTML
+  Rendering session/login.html.erb within layouts/application
+  Rendered session/login.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 128ms (Views: 84.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-05-16 17:25:30 +0700
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6LavcAH1qsg4tfmJb5z7SC/ptsKTjPa0r5F5fqGWl1RuP2CT/nfr/1pc4MZsEBMGCJxCyPPAGyQSvawNVn8V0w==", "session"=>{"name"=>"1234", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` = '1234' LIMIT 1[0m
+  ↳ app/controllers/session_controller.rb:6
+  Rendering session/login.html.erb within layouts/application
+  Rendered session/login.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 87ms (Views: 84.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-05-16 17:25:37 +0700
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mLWgtMGPPsT3KQs7Wk4EMXAqyi2P0Kh3UeTzH2iwixYePG9XPg1/85XAEnRZwux/V18+J++cRefsyCZsn1kJkQ==", "session"=>{"name"=>"admin", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`name` = 'admin' LIMIT 1[0m
+  ↳ app/controllers/session_controller.rb:6
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 80ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-05-16 17:25:37 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:8
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 70ms (Views: 65.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-05-16 17:25:40 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/users/index.html.erb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  ↳ app/views/users/index.html.erb:20
+  Rendered collection of users/_user.html.erb [3 times] (11.5ms)
+  Rendered users/index.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 116ms (Views: 112.2ms | ActiveRecord: 1.0ms)
+
+
