@@ -38,18 +38,17 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bcrypt'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
-gem 'sqlite3'
 
+gem 'pg'
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 end
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
