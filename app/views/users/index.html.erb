@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h1 class="title">LOGIN APP</h1>
+    </div>
+    <div class="col-lg-12 form-group">
+      <label for="">Welcome</label>
+      <% current_user = User.find_by id: session[:user_id]%>
+      <%= link_to current_user.name, user_path(current_user) %>
+    </div>
+    <div class="col-lg-12 form-group">
+      <label for="">List Users</label>
+      <table class="table">
+        <tr>
+        <th>ID</th>
+        <th>User Name</th>
+        <th>Action</th>
+        </tr>
+        <tbody>
+        <%= render @users %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

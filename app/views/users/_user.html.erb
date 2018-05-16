@@ -1,0 +1,17 @@
+<tr>
+  <td>
+    <div class="text-left col-lg-6" , style="padding-left: 0px ">
+      <label><%= user.id %></label>
+    </div>
+  </td>
+  <td>
+    <div class="text-left col-lg-6" , style="padding-left: 0px ">
+      <label><%= user.name %></label>
+    </div>
+  </td>
+  <td>
+    <%= form_tag delete_user_path(id: user.id), method: :post do %>
+      <%= submit_tag 'Delete' %>
+    <% end %>
+  </td>
+</tr>
